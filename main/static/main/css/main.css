@@ -1,0 +1,168 @@
+
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.feature h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 600px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  
+}
+
+.form-group {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.margin_h1{
+  margin-top: 0px;
+  margin-bottom: 5px;  
+
+}
+textarea {
+  height: 150px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #555;
+}
+
+
+.contact_form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+  
+}
+
+.form_background{
+  background-color: #f5f4f4;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 20px rgb(223, 222, 222);
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+

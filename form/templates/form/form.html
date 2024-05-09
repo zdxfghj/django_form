@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+   Форма
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center mt-5">
+             <div> <img src="{% static 'main/img/guese.jpg' %}" alt="guese "/></div>
+             <div class="form_background">
+              <h1 class="margin_h1">Contact Us</h1>
+              <form  method="POST">
+                   {% csrf_token %}
+                  <div class="form-group">
+                    {{ form.first_name }}
+                       </div>
+                  <div class="form-group">
+                    {{ form.last_name }}
+                       </div>
+                  <div class="form-group">
+                    {{ form.email }}
+                       </div>
+                   <div class="form-group">
+                        <label>Service type</label>
+                       {{ form.service_type }}
+                   </div>
+                   <div class="form-group">
+                        <label>How did you find us?</label>
+                       {{ form.info }}
+                   </div>
+
+                        <span>{{ error }}</span>
+                    <button type="submit">Submit</button>
+              </form>
+             </div>
+
+      </div>
+{% endblock %}
+
+
