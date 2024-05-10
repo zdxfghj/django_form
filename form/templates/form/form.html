@@ -1,42 +1,85 @@
-{% extends 'main/layout.html' %}
+
 
 {% load static %}
 
-{% block title %}
-   Форма
+
+
+
+{% block form_validation %}
+<script>
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+    </script>
+
 {% endblock %}
 
+
+
 {% block content %}
-    <div class="d-flex justify-content-center align-items-center mt-5">
-             <div> <img src="{% static 'main/img/guese.jpg' %}" alt="guese "/></div>
-             <div class="form_background">
-              <h1 class="margin_h1">Contact Us</h1>
-              <form  method="POST">
-                   {% csrf_token %}
-                  <div class="form-group">
+    <div class="d-flex justify-content-center align-items-center mt-5 mb-5" id="feedback">
+        <div><img src="{% static 'main/img/guese.jpg' %}" alt="guese "/></div>
+        <div class="form_background">
+            <h1 class="margin_h1">Contact Us</h1>
+            <form method="POST" action="{% url 'form_create' %}" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
                     {{ form.first_name }}
-                       </div>
-                  <div class="form-group">
+                    <div class="invalid-feedback">
+                        This field is required
+                    </div>
+                </div>
+                <div class="mb-3">
                     {{ form.last_name }}
-                       </div>
-                  <div class="form-group">
+                </div>
+                <div class="mb-3">
                     {{ form.email }}
-                       </div>
-                   <div class="form-group">
-                        <label>Service type</label>
-                       {{ form.service_type }}
-                   </div>
-                   <div class="form-group">
-                        <label>How did you find us?</label>
-                       {{ form.info }}
-                   </div>
+                </div>
+                <div class="mb-3">
+                    <label>Service type</label>
+                    {{ form.service_type }}
+                </div>
+                <div class="mb-3">
+                    <label>How did you find us?</label>
+                    {{ form.info }}
+                </div>
+                <div class="form-check">
+                   {{ form.personalize_ads }}
+                    <label class="form-check-label" for="flexCheckChecked">
+                        I agree to receive marketing communication
+                    </label>
+                </div>
+                 <div class="form-check">
+                   {{ form.mark_communication }}
+                    <label class="form-check-label" for="flexCheckChecked">
+                        I agree to receive personalized ads
+                    </label>
+                </div>
 
-                        <span>{{ error }}</span>
-                    <button type="submit">Submit</button>
-              </form>
-             </div>
 
-      </div>
+
+                <span>{{ error }}</span>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
 {% endblock %}
 
 

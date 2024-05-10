@@ -36,10 +36,38 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
       </section>
-
+        <section class="bg-secondary bg-opacity-50 mt-4">
+      <div class="container mt-5 ">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam ex ut hendrerit ultrices. Sed ultricies porta ornare. Donec vitae purus auctor, euismod leo quis, pellentesque orci. Integer eu dolor non orci feugiat tincidunt. Nunc eget velit auctor, ultricies tellus id, porttitor turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed gravida, odio id dignissim efficitur, dui quam finibus risus, id pulvinar sapien urna a ex.</p>
+                <p>Donec at aliquam libero. Suspendisse id hendrerit turpis. Sed ullamcorper, purus sed eleifend commodo, eros nisi faucibus sapien, id finibus purus libero eu dolor. Nullam laoreet, nibh eu commodo mattis, enim leo laoreet est, a gravida dolor turpis et leo.</p>
+            </div>
+            <div class="col-md-6 ">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="{% static 'main/img/1.jpg' %}" alt="Contact 1" class="img-fluid mb-3">
+                        <p>Contact Name 1</p>
+                        <p>Email: contact1@example.com</p>
+                        <p>Phone: 123-456-7890</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'main/img/2.jpg' %}" alt="Contact 2" class="img-fluid mb-3">
+                        <p>Contact Name 2</p>
+                        <p>Email: contact2@example.com</p>
+                        <p>Phone: 987-654-3210</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+         {% include 'form/form.html' %}
       <footer>
           <p>&copy; 2024 My Website. All rights reserved.</p>
       </footer>
+   
     </div>
 {#    {% include 'main/test.html' %}#}
 {% endblock %}

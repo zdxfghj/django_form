@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Artiles
+from .models import FeedBack
 
-admin.site.register(Artiles)
+admin.site.register(FeedBack)
 # Register your models here.

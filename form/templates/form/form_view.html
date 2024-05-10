@@ -1,52 +1,99 @@
 {% extends 'main/layout.html' %}
 
+{% block social_media %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(
+                {{ social_media_array }}
+            );
+
+            var options = {
+                title: 'Table: How did you find us?'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_social_media'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+{% endblock %}
+
+{% block service_type %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable(
+                {{ service_type_array }}
+            );
+
+            var options = {
+                title: 'Table: Service type'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_service_type'));
+
+            chart.draw(data, options);
+        }
+    </script>
+{% endblock %}
+
 {% block title %}
-   Форма
+    Форма
 {% endblock %}
 
 {% block content %}
     {% if forms %}
-        {% for el in forms %}
-            <div class="alert alert-warning">
-                <h3>{{ el.name }}</h3>
-                <h4>{{ el.email }}</h4>
-            </div>
-        {% endfor %}
+        <div class="d-flex justify-content-center">
+            <div id="piechart_service_type" style="width: 900px; height: 500px;"></div>
+            <div id="piechart_social_media" style="width: 900px; height: 500px;"></div>
+        </div>
+        <div class="d-flex justify-content-center">
+
+
+            <table class="table table-success table-striped w-75 ">
+
+                <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Service Type</th>
+                    <th scope="col">How did you find us?</th>
+                    <th scope="col">Agree to marketing communication</th>
+                    <th scope="col">Agree to personalized ads</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+
+                {% for el in forms %}
+                    <tr>
+                        <td>{{ el.first_name }}</td>
+                        <td>{{ el.last_name }}</td>
+                        <td>{{ el.email }}</td>
+                        <td>{{ el.service_type }}</td>
+                        <td>{{ el.info }}</td>
+                        <td>{{ el.mark_communication }}</td>
+                        <td>{{ el.personalize_ads }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
     {% else %}
         <p>У вас нет записей </p>
     {% endif %}
-
-{% load googlecharts %}
-
-<div id="count_graph"></div>
-{#https://habr.com/ru/articles/126704/#}
-{% googlecharts %}
-	{% data values "count" %}
-		{% col "string" "Date" %}"{{ val|date:"M j" }}"{% endcol %}
-		{% col "number" "# of payments" %}{{ val }}{% endcol %}
-	{% enddata %}
-
-	{% options %}
-		kind: "LineChart",
-		options: {
-			backgroundColor: "#f9f9f9",
-			colors: ["#09f"],
-			gridlineColor: "#ddd",
-			legend: "none",
-			vAxis: {minValue: 0},
-			chartArea: {left: 40, top: 20, width: 240, height: 180},
-			width: 300,
-			height: 240
-		}
-	{% endoptions %}
-
-	{% graph "count_graph" "count" %} {# используем опции по умолчанию #}
-{% endgooglecharts %}
-
-<div id="count_graph"></div>
-
-
-
 {% endblock %}
 
 

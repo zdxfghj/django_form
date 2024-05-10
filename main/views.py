@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from form.forms import ArticleForm
+
 
 def index(request):
-    return render(request,'main/index.html', {'title': "Главная страница !!!"})
+    form = ArticleForm()
+    return render(request,'main/index.html', {'title': "Главная страница !!!", 'form': form})
 
 
 def about(request):
